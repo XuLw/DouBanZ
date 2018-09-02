@@ -4,27 +4,16 @@ import java.util.List;
 
 public class Subjects {
     private Rating rating;
-
     private List<String> genres;
-
     private String title;
-
     private String original_title;
-
     private List<Casts> casts;
-
     private int collect_count;
-
     private String subtype;
-
     private List<Directors> directors;
-
     private String year;
-
     private Images images;
-
     private String alt;
-
     private String id;
 
     public void setRating(Rating rating) {

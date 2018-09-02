@@ -11,6 +11,10 @@ public class MyObserver<T> implements Observer<T> {
     private ObserverOnNextListener<T> mListener;
     private Context mContext;
 
+    public MyObserver(ObserverOnNextListener listener) {
+        this.mListener = listener;
+    }
+
     public MyObserver(Context context, ObserverOnNextListener listener) {
         this.mContext = context;
         this.mListener = listener;
