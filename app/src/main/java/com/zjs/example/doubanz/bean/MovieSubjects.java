@@ -1,8 +1,12 @@
 package com.zjs.example.doubanz.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.support.annotation.NonNull;
+
 import java.util.List;
 
-public class Subjects {
+public class MovieSubjects implements Parcelable, Comparable<MovieSubjects> {
     private Rating rating;
     private List<String> genres;
     private String title;
@@ -15,6 +19,41 @@ public class Subjects {
     private Images images;
     private String alt;
     private String id;
+
+    public MovieSubjects(Parcel in) {
+        genres = in.createStringArrayList();
+        title = in.readString();
+        original_title = in.readString();
+        collect_count = in.readInt();
+        subtype = in.readString();
+        year = in.readString();
+        alt = in.readString();
+        id = in.readString();
+    }
+
+    public static final Creator<MovieSubjects> CREATOR = new Creator<MovieSubjects>() {
+        @Override
+        public MovieSubjects createFromParcel(Parcel in) {
+            return new MovieSubjects(in);
+        }
+
+        @Override
+        public MovieSubjects[] newArray(int size) {
+            return new MovieSubjects[size];
+        }
+    };
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeStringList(genres);
+        dest.writeString(title);
+        dest.writeString(original_title);
+        dest.writeInt(collect_count);
+        dest.writeString(subtype);
+        dest.writeString(year);
+        dest.writeString(alt);
+        dest.writeString(id);
+    }
 
     public void setRating(Rating rating) {
         this.rating = rating;
@@ -112,10 +151,9 @@ public class Subjects {
         return this.id;
     }
 
-
     @Override
     public String toString() {
-        return "Subjects{" +
+        return "MovieSubjects{" +
                 "rating=" + rating +
                 ", genres=" + genres +
                 ", title='" + title + '\'' +
@@ -129,5 +167,18 @@ public class Subjects {
                 ", alt='" + alt + '\'' +
                 ", id='" + id + '\'' +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public int compareTo(@NonNull MovieSubjects o) {
+        if ((this.getRating().getAverage() - o.getRating().getAverage()) > 0)
+            return -1;
+        else
+            return 1;
     }
 }

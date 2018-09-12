@@ -1,51 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/nsv_top250Movie"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context="com.zjs.example.doubanz.Top250.Top250MoviesFragment">
 
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/nsv_top250Movie"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="#f5f5f5"
         android:orientation="vertical">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_top250Movie"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="#f5f5f5"
+            android:orientation="vertical">
 
-        <include
-            android:id="@+id/empty_top250Movie"
-            layout="@layout/recycler_empty"
-            android:visibility="gone" />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_top250Movie"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/tv_loading_more"
+            <include
+                android:id="@+id/empty_top250Movie"
+                layout="@layout/recycler_empty"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_loading_more"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="正在加载更多数据..."
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/forth_text_size"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_no_more"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="没有更多数据了..."
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/forth_text_size"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rl_fab_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/ll_movie_search_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ll_book_search_root"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@+id/miniFab01"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:paddingBottom="5dp"
+                android:text="电影"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_movie_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="46dp"
+                android:src="@drawable/movie"
+                app:backgroundTint="#6aa84f"
+                app:elevation="5dp"
+                app:fabSize="mini" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_book_search_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ll_movie_type_search_root"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@+id/miniFab01"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:paddingBottom="5dp"
+                android:text="图书"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_book_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="46dp"
+                android:src="@drawable/book"
+                app:backgroundTint="#ea9999"
+                app:elevation="5dp"
+                app:fabSize="mini" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_movie_type_search_root"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="正在加载更多数据..."
-            android:textColor="@color/secondary_text"
-            android:textSize="@dimen/forth_text_size"
-            android:visibility="gone" />
+            android:layout_marginBottom="120dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_no_more"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="木有更多数据了..."
-            android:textColor="@color/secondary_text"
-            android:textSize="@dimen/forth_text_size"
-            android:visibility="gone" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@+id/miniFab02"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:paddingBottom="5dp"
+                android:text="电影类型"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
 
-    </LinearLayout>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_movie_type_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="46dp"
+                android:src="@drawable/type"
+                app:backgroundTint="#6d9eeb"
+                app:elevation="5dp"
+                app:fabSize="mini" />
+        </LinearLayout>
 
-</android.support.v4.widget.NestedScrollView>
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_movie_search_container"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="35dp"
+        android:backgroundTint="@color/white"
+        android:padding="4dp"
+        android:src="@drawable/search"
+        app:backgroundTintMode="src_in"
+        app:borderWidth="0dp"
+        app:elevation="5dp"
+        app:fabSize="auto"
+        app:layout_anchorGravity="bottom|right|end"
+        app:layout_behavior="com.zjs.example.doubanz.widget.ScrollAwareFABBehavior"
+        app:pressedTranslationZ="20dp"
+        app:rippleColor="#f00"
+        app:useCompatPadding="true" />
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,24 +1,23 @@
 package com.zjs.example.doubanz.bean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SearchMovie {
     private int count;
     private int start;
     private int total;
-    private List<Subjects> subjects;
+    private List<MovieSubjects> subjects;
 
 //    public SearchMovie() {
 //        count = start = total = 0;
 //        mSubjects = new ArrayList<>();
 //    }
 //
-//    public SearchMovie(int count, int start, int total, ArrayList<Subjects> subjects) {
+//    public SearchMovie(int count, int start, int total, ArrayList<MovieSubjects> mSubjects) {
 //        this.count = count;
 //        this.start = start;
 //        this.total = total;
-//        mSubjects = subjects;
+//        mSubjects = mSubjects;
 //    }
 
     public int getCount() {
@@ -45,11 +44,11 @@ public class SearchMovie {
         this.total = total;
     }
 
-    public List<Subjects> getSubjects() {
+    public List<MovieSubjects> getSubjects() {
         return subjects;
     }
 
-    public void setSubjects(List<Subjects> subjects) {
+    public void setSubjects(List<MovieSubjects> subjects) {
         subjects = subjects;
     }
 

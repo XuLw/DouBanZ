@@ -5,7 +5,7 @@ import java.util.List;
 public class Top250Movie {
     private int count;
     private int start;
-    private List<Subjects> subjects;
+    private List<MovieSubjects> subjects;
 
 
     public void setCount(int count) {
@@ -24,11 +24,11 @@ public class Top250Movie {
         return this.start;
     }
 
-    public void setSubjects(List<Subjects> subjects) {
+    public void setSubjects(List<MovieSubjects> subjects) {
         this.subjects = subjects;
     }
 
-    public List<Subjects> getSubjects() {
+    public List<MovieSubjects> getSubjects() {
         return this.subjects;
     }
 

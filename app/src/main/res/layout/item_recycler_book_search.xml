@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    android:layout_marginTop="5dp"
+    app:cardCornerRadius="8dp"
+    android:background="#f5f5f5"
+    app:cardElevation="8dp">
+
+    <RelativeLayout
+        android:id="@+id/rl_search_movie_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="3dp">
+
+        <ImageView
+            android:id="@+id/iv_search_book_cover"
+            android:layout_width="120dp"
+            android:layout_height="170dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="centerCrop"
+            android:background="#000"
+            android:elevation="7dp"
+            android:src="@drawable/default_book_cover" />
+
+        <TextView
+            android:id="@+id/tv_search_book_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@+id/iv_search_book_cover"
+            android:layout_toStartOf="@id/tv_search_book_star"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingRight="15dp"
+            android:paddingTop="6dp"
+            android:text="肖申克的救赎肖申克的救赎肖申克的救赎"
+            android:textSize="22dp" />
+
+        <TextView
+            android:id="@+id/tv_search_book_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="12dp"
+            android:text="8.7"
+            android:textColor="#623e3e"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tv_search_book_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_search_book_title"
+            android:layout_below="@id/tv_search_book_star"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="17dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="作者：安妮宝贝"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tv_search_book_pubdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_search_book_title"
+            android:layout_below="@id/tv_search_book_author"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="6dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="出版日期：2017-5"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tv_search_book_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_search_book_title"
+            android:layout_below="@id/tv_search_book_pubdate"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="6dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="页数：547"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tv_search_book_publisher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_search_book_title"
+            android:layout_below="@id/tv_search_book_page"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="6dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="出版社：北京十月出版社"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tv_search_book_binding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_search_book_title"
+            android:layout_below="@id/tv_search_book_publisher"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="6dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="装帧: 精装"
+            android:textSize="14dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_search_book_summary_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_search_book_cover"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_search_book_summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:letterSpacing="0.1"
+                android:lineSpacingExtra="2dp"
+                android:lines="3"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tv_search_book_summary_all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.1"
+                android:lineSpacingExtra="2dp"
+                android:textSize="15dp"
+                android:visibility="gone" />
+
+
+            <View
+                android:id="@+id/v_separator"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="6dp"
+                android:background="#c9daf8" />
+
+            <TextView
+                android:id="@+id/tv_search_book_tag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v_separator"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:text="标签：日本、爱情"
+                android:textColor="#45818e" />
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

@@ -7,4 +7,5 @@ package com.zjs.example.doubanz.adapter;
 public interface AdapterCallback<Data> {
 
     void update(Data data, RecyclerAdapter.ViewHolder<Data> holder);
+
 }

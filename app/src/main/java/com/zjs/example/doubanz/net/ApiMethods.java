@@ -1,13 +1,11 @@
 package com.zjs.example.doubanz.net;
 
-import android.util.Log;
-
 import com.zjs.example.doubanz.bean.Movie;
 import com.zjs.example.doubanz.bean.SearchBook;
 import com.zjs.example.doubanz.bean.SearchMovie;
-import com.zjs.example.doubanz.bean.SearchType;
 import com.zjs.example.doubanz.bean.Top250Movie;
 import com.zjs.example.doubanz.common.Constant;
+import com.zjs.example.doubanz.search.SearchTypeEnum;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -28,15 +26,12 @@ public class ApiMethods {
         ApiSubscribe(ApiService.getInstance().getApi(Constant.DOUBAN_MOVIE).getTop250Movies(start, count), observer);
     }
 
-    public static void searchMovie(Observer<SearchMovie> observer, SearchType type, String search, int start, int count) {
-        switch (type) {
-            case TAG:
-                ApiSubscribe(ApiService.getInstance().getApi(Constant.DOUBAN_MOVIE).searchMovieByTag(search, start, count), observer);
-                break;
-            case KEYWORD:
-                ApiSubscribe(ApiService.getInstance().getApi(Constant.DOUBAN_MOVIE).searchMovieByKeyword(search, start, count), observer);
-                break;
-        }
+    public static void searchMovie(Observer<SearchMovie> observer, SearchTypeEnum type, String search, int start, int count) {
+        if (SearchTypeEnum.MOVIE_TYPE == type)
+            ApiSubscribe(ApiService.getInstance().getApi(Constant.DOUBAN_MOVIE).searchMovieByTag(search, start, count), observer);
+
+        if (SearchTypeEnum.MOVIE == type)
+            ApiSubscribe(ApiService.getInstance().getApi(Constant.DOUBAN_MOVIE).searchMovieByKeyword(search, start, count), observer);
     }
 
     public static void getMovieById(Observer<Movie> observer, String id) {

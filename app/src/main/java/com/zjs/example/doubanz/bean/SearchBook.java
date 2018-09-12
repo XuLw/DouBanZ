@@ -10,7 +10,7 @@ public class SearchBook {
 
     private int total;
 
-    private List<Book> books;
+    private List<BookSubject> books;
 
     public void setCount(int count) {
         this.count = count;
@@ -36,11 +36,11 @@ public class SearchBook {
         return this.total;
     }
 
-    public void setBooks(List<Book> books) {
+    public void setBooks(List<BookSubject> books) {
         this.books = books;
     }
 
-    public List<Book> getBooks() {
+    public List<BookSubject> getBooks() {
         return this.books;
     }
 

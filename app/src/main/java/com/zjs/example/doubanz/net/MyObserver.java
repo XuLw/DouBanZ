@@ -3,6 +3,8 @@ package com.zjs.example.doubanz.net;
 import android.content.Context;
 import android.util.Log;
 
+import com.zjs.example.doubanz.base.BaseApp;
+
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -12,7 +14,7 @@ public class MyObserver<T> implements Observer<T> {
     private Context mContext;
 
     public MyObserver(ObserverOnNextListener listener) {
-        this.mListener = listener;
+        this(BaseApp.getContext(), listener);
     }
 
     public MyObserver(Context context, ObserverOnNextListener listener) {

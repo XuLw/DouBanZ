@@ -1,6 +1,6 @@
 package com.zjs.example.doubanz.net;
 
-import com.zjs.example.doubanz.bean.Book;
+import com.zjs.example.doubanz.bean.BookSubject;
 import com.zjs.example.doubanz.bean.Movie;
 import com.zjs.example.doubanz.bean.SearchBook;
 import com.zjs.example.doubanz.bean.SearchMovie;
@@ -20,7 +20,7 @@ public interface Api {
      * @return
      */
     @GET(":{isbn}")
-    Observable<Book> getBookInfoByIsbn(@Path("isbn") String isbn);
+    Observable<BookSubject> getBookInfoByIsbn(@Path("isbn") String isbn);
 
     // 根据关键词搜索图书
     @GET("search")

@@ -64,7 +64,7 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
      *
      * @param parent   RecyclerView
      * @param viewType 界面的类型，在这里约定为xml布局文件的id
-     * @return ViewHolder
+     * @return MovieViewHolder
      */
     @Override
     public ViewHolder<Data> onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -101,7 +101,7 @@ public abstract class RecyclerAdapter<Data> extends RecyclerView.Adapter<Recycle
      * 得到一个ViewHolder，由子类来完成
      * @param root 根布局View
      * @param viewType 布局类型，这里就是约定的xml布局文件id
-     * @return ViewHolder
+     * @return MovieViewHolder
      */
     protected abstract ViewHolder<Data> onCreateViewHolder(View root, int viewType);
 

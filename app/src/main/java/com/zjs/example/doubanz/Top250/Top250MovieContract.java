@@ -2,8 +2,7 @@ package com.zjs.example.doubanz.Top250;
 
 import com.zjs.example.doubanz.base.BasePresenter;
 import com.zjs.example.doubanz.base.BaseView;
-import com.zjs.example.doubanz.bean.Subjects;
-import com.zjs.example.doubanz.bean.Top250Movie;
+import com.zjs.example.doubanz.bean.MovieSubjects;
 
 import java.util.List;
 
@@ -34,7 +33,7 @@ public interface Top250MovieContract {
          *
          * @param list
          */
-        void showMoreData(List<Subjects> list);
+        void showMoreData(List<MovieSubjects> list);
     }
 
     interface Presenter extends BasePresenter {
