@@ -5,7 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
+import com.zjs.example.doubanz.base.BaseApp;
 import com.zjs.example.doubanz.bean.Movie;
 import com.zjs.example.doubanz.bean.MovieData;
 
@@ -14,7 +16,15 @@ import java.util.List;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
+    private static final String TAG = "MyDatabaseHelper";
     private Context mContext;
+    private static MyDatabaseHelper sMyDatabaseHelper;
+
+    public static MyDatabaseHelper getInstance() {
+        if (sMyDatabaseHelper == null)
+            sMyDatabaseHelper = new MyDatabaseHelper(BaseApp.getContext(), SqlConstant.DB_NAME, null, 1);
+        return sMyDatabaseHelper;
+    }
 
 
     public MyDatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {

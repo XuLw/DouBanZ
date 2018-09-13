@@ -63,6 +63,11 @@ public class MovieDetailActivity extends BaseActivity implements View.OnClickLis
     private String id;
     private String moviePosterUrl;
     private boolean isCollected;
+    private PressedState isPressed;
+
+    enum PressedState {
+        INIT, PRESSED_Y, PRESSED_N
+    }
 
     @Override
     protected View initContentView() {
@@ -72,7 +77,7 @@ public class MovieDetailActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     protected boolean initArgs(Bundle bundle) {
-        isCollected = false;
+        isPressed = PressedState.INIT;
         Intent intent = getIntent();
         this.id = intent.getStringExtra(Top250MoviesFragment.INTENT_KEY_MOVIE_ID);
         this.moviePosterUrl = intent.getStringExtra(Top250MoviesFragment.INTENT_KEY_MOVIE_POSTER);
@@ -117,6 +122,13 @@ public class MovieDetailActivity extends BaseActivity implements View.OnClickLis
         mMovieCountryTv.setText("国 家 :  " + mMovie.getCountries());
         mMovieRating.setText("评 分 :  " + mMovie.getRatingString());
 
+        if (MyDatabaseHelper.getInstance().isMovieCollected(id)) {
+            //已经收藏
+            Log.d(TAG, "initView: isCollected ffff");
+            isCollected = true;
+            mCollectingBefore.setVisibility(View.GONE);
+            mCollectingAfter.setVisibility(View.VISIBLE);
+        }
     }
 
     @OnClick({R.id.iv_movie_collect_after, R.id.iv_movie_collect_before})
@@ -124,12 +136,12 @@ public class MovieDetailActivity extends BaseActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_movie_collect_before:
-                isCollected = false;
+                isPressed = PressedState.PRESSED_Y;
                 mCollectingBefore.setVisibility(View.GONE);
                 mCollectingAfter.setVisibility(View.VISIBLE);
                 break;
             case R.id.iv_movie_collect_after:
-                isCollected = true;
+                isPressed = PressedState.PRESSED_N;
                 mCollectingAfter.setVisibility(View.GONE);
                 mCollectingBefore.setVisibility(View.VISIBLE);
                 break;
@@ -139,9 +151,11 @@ public class MovieDetailActivity extends BaseActivity implements View.OnClickLis
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        if (isCollected) {
-//            MyDatabaseHelper databaseHelper = new MyDatabaseHelper(BaseApp.getContext(), SqlConstant.DB_NAME, null, 1);
-//            databaseHelper.collectMovie(mMovie);
-//        }
+        if (isPressed == PressedState.PRESSED_Y && !isCollected) {
+            MyDatabaseHelper.getInstance().collectMovie(mMovie);
+        }
+        if (isPressed == PressedState.PRESSED_N && isCollected) {
+            MyDatabaseHelper.getInstance().cancleCollection(id);
+        }
     }
 }

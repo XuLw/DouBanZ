@@ -14,20 +14,20 @@ public class CollectMoviePresenter implements CollectMovieContract.Presenter {
 
     private static final String TAG = "CollectMoviePresenter";
 
-    CollectMovieContract.View mView;
-    MyDatabaseHelper mDatabaseHelper;
+    private CollectMovieContract.View mView;
+    private MyDatabaseHelper mDatabaseHelper;
 
     public CollectMoviePresenter(CollectMovieContract.View view) {
         this.mView = view;
         view.setPresenter(this);
-        mDatabaseHelper = new MyDatabaseHelper(BaseApp.getContext(), SqlConstant.DB_NAME, null, 1);
+        mDatabaseHelper = MyDatabaseHelper.getInstance();
     }
 
 
     @Override
     public void loadData() {
+        Log.d(TAG, "loadData: ffff");
         List<MovieData> datas = mDatabaseHelper.loadCollectedMovies();
-        Log.d(TAG, "loadData: ffff" + datas.size());
         if (datas.size() == 0)
             mView.showEmpty();
         else

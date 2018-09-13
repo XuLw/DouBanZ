@@ -65,8 +65,6 @@ public class SearchFragment extends BaseFragment implements SearchContract.View,
 
     @Override
     protected void initWidget(View view) {
-
-
         if (mType == SearchTypeEnum.MOVIE || mType == SearchTypeEnum.MOVIE_TYPE) {
             mRecyclerAdapter = new RecyclerAdapter<MovieSubjects>() {
                 @Override
@@ -111,7 +109,6 @@ public class SearchFragment extends BaseFragment implements SearchContract.View,
                 return true;
             }
         });
-
     }
 
     public void setType(SearchTypeEnum type) {

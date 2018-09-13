@@ -48,12 +48,8 @@ public class Top250MoviePresenter implements Top250MovieContract.Presenter {
                 requestStartPosition += REQUEST_COUNT;
                 mView.showMoreData(o.getSubjects());
                 mView.hideLoadMore();
-//                for (MovieSubjects subject : o.getSubjects()) {
-//                    Log.d(TAG, "onNext: " + subject.toString());
-//                }
             }
         });
-
         ApiMethods.getTopMovie(top250MovieMyObserver, requestStartPosition, REQUEST_COUNT);
     }
 

@@ -286,7 +286,6 @@ public class Top250MoviesFragment extends BaseFragment implements Top250MovieCon
             for (; indexOfStar < 5; indexOfStar++) {
                 Glide.with(BaseApp.getContext()).load(R.drawable.star_empty).into(imageViews.get(indexOfStar));
             }
-
         }
     }
 

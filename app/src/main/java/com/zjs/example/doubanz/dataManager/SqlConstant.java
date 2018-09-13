@@ -4,7 +4,7 @@ public class SqlConstant {
 
     public static final String CREATE_MOVIE = "create table movie (" +
             "id text primary key," +
-            "iamge text," +
+            "image text," +
             "title text," +
             "aka text," +
             "year text," +
@@ -15,7 +15,7 @@ public class SqlConstant {
             "casts text," +
             "summary text)";
 
-    public static final String DB_NAME = "movie_db";
+    public static final String DB_NAME = "movie_db.db";
     public static final String MOVIE_TABLE = "movie";
     public static final String MOVIE_ID = "id";
     public static final String MOVIE_IMAGE = "image";

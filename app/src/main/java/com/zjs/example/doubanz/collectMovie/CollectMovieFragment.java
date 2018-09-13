@@ -1,7 +1,9 @@
 package com.zjs.example.doubanz.collectMovie;
 
+import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,6 +18,7 @@ import java.util.List;
 import butterknife.BindView;
 
 public class CollectMovieFragment extends BaseFragment implements CollectMovieContract.View {
+
     private static final String TAG = "CollectMovieFragment";
 
     @BindView(R.id.rv_collectMovie)
@@ -42,13 +45,21 @@ public class CollectMovieFragment extends BaseFragment implements CollectMovieCo
     }
 
     @Override
-    protected void initData() {
+    public void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ffff");
+        mRecyclerAdapter.clear();
         mPresenter.start();
-        showEmpty();
+    }
+
+    @Override
+    protected void initData() {
+        Log.d(TAG, "initData: fff");
     }
 
     @Override
     protected void initWidget(View view) {
+        Log.d(TAG, "initWidget: ffff");
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayout.VERTICAL, false));
         mRecyclerView.setAdapter(mRecyclerAdapter);
     }
